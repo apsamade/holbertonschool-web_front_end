@@ -1,10 +1,10 @@
-$text-color: #3D3D3D;
-$background-col: #6D6D6D;
+$color: #3D3D3D;
+$bg: #6D6D6D;
 body,
 p {
-    color: $text-color;
+    color: $color;
 }
 
 body, h2{
-    background-color: $background-col;
+    background-color: $bg;
 }
