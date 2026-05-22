@@ -1,43 +1,39 @@
-class studentHogwarts {
-    #privateScore = 0;
-    #name = null
+function studentHogwarts() {
+  let privateScore = 0;
+  let name = null;
 
-
-#changeScoreBy(points) {
-    this.#privateScore += points;
-}
-
-setName(newname) {
-    this.#changeScoreBy(1);
-}
-
- rewardStudent() {
-    this.#changeScoreBy(1);
+  function changeScoreBy(points) {
+    privateScore += points;
   }
 
-  penalizeStudent() {
-    this.#changeScoreBy(-1);
-  }
-
-  getScore() {
-    return `${this.#name}: ${this.#privateScore}`;
-  }
+  return {
+    setName(newName) {
+      name = newName;
+    },
+    rewardStudent() {
+      changeScoreBy(1);
+    },
+    penalizeStudent() {
+      changeScoreBy(-1);
+    },
+    getScore() {
+      return `${name}: ${privateScore}`;
+    },
+  };
 }
 
-// 🔮 Harry
-const harry = new studentHogwarts();
-harry.setName("Harry");
+const harry = studentHogwarts();
+harry.setName('Harry');
 harry.rewardStudent();
 harry.rewardStudent();
 harry.rewardStudent();
 harry.rewardStudent();
-console.log(harry.getScore()); // Harry: 4
+console.log(harry.getScore());
 
-// 🐍 Draco
-const draco = new studentHogwarts();
-draco.setName("Draco");
+const draco = studentHogwarts();
+draco.setName('Draco');
 draco.rewardStudent();
 draco.penalizeStudent();
 draco.penalizeStudent();
 draco.penalizeStudent();
-console.log(draco.getScore()); // Draco: -2
+console.log(draco.getScore());
