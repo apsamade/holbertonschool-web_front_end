@@ -1,14 +1,19 @@
-function createlassRoom(numberOfStudents) {
-    function studentSeat(seat) {
+function createClassRoom(numbersOfStudents) {
+  function studentSeat(seat) {
     return function () {
-        return seat;
+      return seat;
     };
-}
+  }
 
-const students = [];
-
-for (let i = 0; i < numberOfStudents; i++) {
+  const students = [];
+  for (let i = 0; i < numbersOfStudents; i++) {
     students.push(studentSeat(i + 1));
+  }
+  return students;
 }
-    return students;
-}
+
+const classRoom = createClassRoom(10);
+
+console.log(classRoom[0]());
+console.log(classRoom[3]());
+console.log(classRoom[9]());
