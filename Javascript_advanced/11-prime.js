@@ -1,30 +1,24 @@
-function isPrime(num) {
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) {
-            return false;
-        }
-    }
-    return num > 1;
-}
-
 function countPrimeNumbers() {
-    let count = 0;
-    for (let i = 2; i <= 100; i++) {
-        if (isPrime(i)) {
-            count++;
-        }
+  let count = 0;
+
+  function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) return false;
     }
-    return count;
+    return true;
+  }
+
+  for (let num = 2; num <= 100; num++) {
+    if (isPrime(num)) count++;
+  }
+  return count;
 }
 
-const startTime = performance.now();
-
-function executeCountPrimeNumbers() {
-    for (let i = 0; i < 100; i++) {
-        countPrimeNumbers();
-    }
-    const endTime = performance.now();
-    console.log('Execution time of calculating prime numbers 100 times was ' + (endTime - startTime) + ' milliseconds.');
+const start = performance.now();
+for (let i = 0; i < 100; i++) {
+  setTimeout(countPrimeNumbers, 0);
 }
+const end = performance.now();
 
-setTimeout(executeCountPrimeNumbers, 0);
+console.log(`Execution time of calculating prime numbers 100 times was ${end - start} milliseconds.`);
